@@ -23,7 +23,11 @@ class VariableGrid : AppCompatActivity() {
 
         val items = listOf(MenuItem.MENU1, MenuItem.MENU2, MenuItem.MENU3, MenuItem.MENU4, MenuItem.MENU5,
             MenuItem.MENU6, MenuItem.MENU7, MenuItem.MENU1, MenuItem.MENU2, MenuItem.MENU3)
-        setAllMenuItems(items)
+        try {
+            setAllMenuItems(items)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun setAllMenuItems(menuItems: List<MenuItem>) {
@@ -38,8 +42,7 @@ class VariableGrid : AppCompatActivity() {
                 val item = queue.poll()
                 if (item != null) {
                     val menu = MenuItemView(this, row)
-                    menu.setActivity(item.activity)
-                    menu.setText(item.text)
+                    menu.setContent(item.text, item.activity)
                 }
             }
             binding.mainView.addView(row)
