@@ -41,8 +41,7 @@ class VariableGrid : AppCompatActivity() {
             for (j in 1..4){
                 val item = queue.poll()
                 if (item != null) {
-                    val menu = MenuItemView(this, row)
-                    menu.setContent(item.text, item.activity)
+                    MenuItemView(this, row, item.text, item.activity)
                 }
             }
             binding.mainView.addView(row)

@@ -13,12 +13,9 @@ class MenuItemView(context: Context) : View(context) {
     private lateinit var binding: MenuItemBinding
     private lateinit var inflater: LayoutInflater
 
-    constructor(context: Context, viewGroup: ViewGroup) : this(context) {
+    constructor(context: Context, viewGroup: ViewGroup, text: String, activity: Activity) : this(context) {
         inflater = LayoutInflater.from(context)
         binding = MenuItemBinding.inflate(inflater, viewGroup, true)
-    }
-
-    fun setContent(text: String, activity: Activity) {
         binding.menuText.text = text
         binding.icon.setOnClickListener {
             context.startActivity(
